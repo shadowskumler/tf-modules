@@ -3,5 +3,5 @@ resource "helm_release" "external-dns" {
   chart      = "external-dns"
   repository = "${var.repository}"
   namespace  = "${var.namespace}"
-  values     = ["${file("external-dns-values.yaml")}"]
+  values     = ["${file("${path.module}/external-dns-values.yaml")}"]
 }
