@@ -36,4 +36,5 @@ variable "preempt_machine_type" {
 
 variable "non_preempt_machine_type" {
   description = "Machine type for non-preemptible nodes in default node pool. Default = n1-standard-1."
+  default     = "n1-standard-1"
 }
