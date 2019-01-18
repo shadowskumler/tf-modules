@@ -1,0 +1,7 @@
+letsencrypt:
+  email: ${email}
+  enableStaging: ${enable_staging}
+cert-manager:
+  ingressShim:
+    defaultIssuerName: letsencrypt-prod
+    defaultIssuerKind: ClusterIssuer
