@@ -55,6 +55,11 @@ resource "google_container_node_pool" "preempt" {
       "https://www.googleapis.com/auth/ndev.clouddns.readwrite",
     ]
   }
+
+  management {
+    auto_repair  = true
+    auto_upgrade = true
+  }
 }
 
 resource "kubernetes_service_account" "tiller" {
