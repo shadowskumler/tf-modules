@@ -9,6 +9,6 @@ variable "namespace" {
 }
 
 variable "version" {
-  description = "Version of chart to deploy."
+  description = "Version of chart to deploy. Defaults to latest."
   default     = ""
 }
