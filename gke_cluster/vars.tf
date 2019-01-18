@@ -15,8 +15,9 @@ variable "additional_zones" {
 }
 
 variable "service_account" {
-  description = "Service account to use for Kubernetes cluster."
+  description = "Service account to use for Kubernetes cluster. Will be created if not given."
   type        = "string"
+  default     = ""
 }
 
 variable "preempt_autoscaling_min" {

@@ -72,3 +72,14 @@ resource "kubernetes_cluster_role_binding" "tiller" {
     api_group = ""
   }
 }
+
+resource "google_service_account" "kubernetes" {
+  count        = "${var.service_account != "" ? 0 : 1}"
+  account_id   = "${var.name}-kubernetes"
+  display_name = "Service account for Kubernetes."
+}
+
+resource "google_project_iam_name" "kubernetes_dns_admin" {
+  member = "serviceAccount:${var.service_account != "" ? var.service_account : google_service_account.tools.email}"
+  role   = "roles/dns.admin"
+}

@@ -25,3 +25,7 @@ output "cluster_ca_certificate" {
 output "tiller-service-account" {
   value = "${kubernetes_service_account.tiller.metadata.0.name}"
 }
+
+output "service-account" {
+  value = "${var.service_account != "" ? var.service_account : google_service_account.kubernetes.email}"
+}
