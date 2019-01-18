@@ -4,6 +4,16 @@ resource "google_container_cluster" "cluster" {
   additional_zones   = ["${var.additional_zones}"]
   initial_node_count = 1
 
+  addons_config {
+    http_load_balancing {
+      disabled = true
+    }
+
+    kubernetes_dashboard {
+      disabled = true
+    }
+  }
+
   node_config {
     machine_type    = "${var.non_preempt_machine_type}"
     service_account = "${var.service_account}"
