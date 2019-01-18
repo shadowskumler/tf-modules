@@ -3,6 +3,8 @@ rbac:
 
 controller:
   kind: DaemonSet
+  service:
+    type: NodePort
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -12,7 +14,8 @@ controller:
             operator: NotIn
             values:
               - "true"
-
+  daemonset:
+    useHostPort: "true"
   defaultBackendService: kube-system/default-http-backend
   stats:
     enabled: true
@@ -22,9 +25,6 @@ controller:
     hsts-include-subdomains: "false"
 #    enable-opentracing: true
 #    zipkin-collector-host: zipkin-collector
-
-daemonset:
-  useHostPort: "true"
 
 defaultBackend:
   enabled: "false"
