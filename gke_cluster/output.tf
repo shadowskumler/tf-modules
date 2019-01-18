@@ -27,5 +27,5 @@ output "tiller-service-account" {
 }
 
 output "service-account" {
-  value = "${var.service_account != "" ? var.service_account : google_service_account.kubernetes.email}"
+  value = "${var.service_account != "" ? var.service_account : google_service_account.kubernetes.*.email}"
 }

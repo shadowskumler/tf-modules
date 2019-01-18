@@ -80,6 +80,6 @@ resource "google_service_account" "kubernetes" {
 }
 
 resource "google_project_iam_name" "kubernetes_dns_admin" {
-  member = "serviceAccount:${var.service_account != "" ? var.service_account : google_service_account.tools.email}"
+  member = "serviceAccount:${var.service_account != "" ? var.service_account : google_service_account.kubernetes.*.email}"
   role   = "roles/dns.admin"
 }
