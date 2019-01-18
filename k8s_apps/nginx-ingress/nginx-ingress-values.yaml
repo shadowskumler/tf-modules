@@ -1,0 +1,20 @@
+rbac:
+  create: true
+
+controller:
+  kind: DaemonSet
+  defaultBackendService: kube-system/default-http-backend
+  stats:
+    enabled: true
+  metrics:
+    enabled: true
+  config:
+    hsts-include-subdomains: "false"
+#    enable-opentracing: true
+#    zipkin-collector-host: zipkin-collector
+
+daemonset:
+  useHostPort: "true"
+
+defaultBackend:
+  enabled: "false"
